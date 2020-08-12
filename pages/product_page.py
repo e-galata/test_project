@@ -8,6 +8,10 @@ class ProductPage(BasePage):
 
     def should_be_add_button(self):
         assert self.is_element_present(*ProductPageLocators.ADD_BUTTON), "Add button is not presented"
+		
+    def should_not_be_message_success(self):
+        assert self.is_not_element_present(*ProductPageLocators.MESSAGE_ADDING_ABOUT), \
+           "Success message is presented, but should not be"
 
     def should_be_message_about_adding(self):
         # Сначала проверяем, что элементы присутствуют на странице
