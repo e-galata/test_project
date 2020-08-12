@@ -1,7 +1,7 @@
 ﻿from .base_page import BasePage
 from .locators import ProductPageLocators
 
-class PageObject(BasePage):
+class ProductPage(BasePage):
     def add_product_to_cart(self):
         add_button = self.browser.find_element(*ProductPageLocators.ADD_BUTTON)
         add_button.click()
@@ -21,8 +21,8 @@ class PageObject(BasePage):
         # Проверяем, что название товара присутствует в сообщении о добавлении
         # Это можно было бы сделать с помощью split() и сравнения строк,
         # Но не вижу необходимости усложнять код
-        dope = " has"
-        assert (product_name+dope) in message, "No product name in the message or wrong name"
+        #dope = " has"
+        assert product_name == message, "No product name in the message or wrong name"
 
     def should_be_message_basket_total(self):
         # Сначала проверяем, что элементы присутствуют на странице
