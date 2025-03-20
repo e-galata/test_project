@@ -1,12 +1,10 @@
 import requests
-from jsonschema import validate
-from global_enums import GlobalErrorMessages
 from configuration import BASE_URL, GET_LIST_USERS
-from schema_get import GET_LIST_USER_SCHEMA
+from jsonschema_get import GET_LIST_USER_SCHEMA
+from basetestclasses import Response
+from pydantic_schema_get import Get_List_Users
 
 def test_get_list_users():
-    response = requests.get(url=BASE_URL+GET_LIST_USERS)
-    received_post = response.json()
-    assert response.status_code == 200, GlobalErrorMessages.WRONG_STATUS_CODE.value
-    assert len(received_post) == 6, GlobalErrorMessages.WRONG_ELEMENTS_COUNT.value
-    validate(received_post, GET_LIST_USER_SCHEMA)
+    r = requests.get(url=BASE_URL+GET_LIST_USERS)
+    response = Response(r)
+    response.assert_status_code(200).validate_by_jsonschema(GET_LIST_USER_SCHEMA).validate_by_pydantic(Get_List_Users)
