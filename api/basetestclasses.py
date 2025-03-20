@@ -2,9 +2,12 @@ from jsonschema import validate
 from global_enums import GlobalErrorMessages
 
 class Response():
-    def __init__(self, response):
+    def __init__(self, response, json_data=None):
         self.response = response
-        self.response_json = response.json()
+        if json_data is not None:
+            self.response_json = response.json().get(json_data)
+        else:
+            self.response_json = response.json()
         self.response_status = response.status_code
 
     def validate_by_jsonschema(self, schema):
@@ -29,3 +32,6 @@ class Response():
         else:
             assert self.response_status == status_code, GlobalErrorMessages.WRONG_STATUS_CODE.value
         return self
+
+    def __repr__(self):
+        return f"\nResponse body: {self.response_json}\nRequested URL: {self.response.url}\nResponse status code {self.response_status}" 
