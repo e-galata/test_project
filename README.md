@@ -42,11 +42,12 @@ This is the final course project updated in **2025** to work with **Python 3.13*
      ```
 
 3. **Install the requirements**:
-```bash
-pip install -r requirements.txt
-```
+   ```bash
+   pip install -r requirements.txt
+   ```
 
 🚀 **How to run tests**  
+
 Front-end Tests (Selenium)  
 To run the Selenium front-end tests, execute the following command from the home directory of the project:
 ```bash
