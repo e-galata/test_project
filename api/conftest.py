@@ -2,9 +2,9 @@ import pytest
 import requests
 import random
 
-def _request_get_api(BASE_URL, GET_LIST_USERS, **kwargs):
-    for key, value in kwargs.items():
-        GET_LIST_USERS += f'/{value}'
+def _request_get_api(BASE_URL, GET_LIST_USERS, user=None):
+    if user is not None:
+        GET_LIST_USERS += f'/{user}'
     return requests.get(url=BASE_URL+GET_LIST_USERS)
 
 @pytest.fixture

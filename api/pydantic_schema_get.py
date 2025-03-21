@@ -8,6 +8,9 @@ class Get_List_Users_User(BaseModel):
     last_name: str = Field(min_length=2, pattern="^[A-Za-zА-Яа-я]*$")
     avatar: HttpUrl
 
+class Get_List_User_Data(BaseModel):
+    data: Get_List_Users_User
+
 class Get_List_Users_Support(BaseModel):
     url: HttpUrl
     text: str
