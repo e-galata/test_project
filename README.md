@@ -49,6 +49,7 @@ This is the final course project updated in **2025** to work with **Python 3.13*
 🚀 **How to run tests**  
 
 Front-end Tests (Selenium)  
+`You need installed chrome browser, webdriver will be installed automatically`  
 To run the Selenium front-end tests, execute the following command from the home directory of the project:
 ```bash
 pytest -v --tb=line --language=en
