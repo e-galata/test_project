@@ -1,6 +1,7 @@
 import pytest
 import requests
 import random
+from generators import User 
 
 def _request_get_api(BASE_URL, GET_LIST_USERS, user=None):
     if user is not None:
@@ -24,3 +25,14 @@ def _get_schema_from_data(schema, pathto, data):
 @pytest.fixture
 def get_schema_from_data():
     return _get_schema_from_data
+
+def _request_post_api(BASE_URL, POST_CREATE_USER, data):
+    return requests.post(url=BASE_URL+POST_CREATE_USER, json=data)
+
+@pytest.fixture
+def request_post_api():
+    return _request_post_api
+
+@pytest.fixture
+def generate_user(request):
+    return User.create(**request.param)

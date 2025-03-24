@@ -2,6 +2,14 @@ from jsonschema import validate
 from global_enums import GlobalErrorMessages
 
 class Response():
+    """
+    Here we have a base class for working with API responses.
+    It takes the response itself and json_data as input:
+    Response is the result from the requests library.
+    json_data is the field from which the schema should be validated (e.g., if not validating from the root).
+    json_data can be either an array or a collection and is used in schema validation methods.
+    Also includes a status code verification method.
+    """
     def __init__(self, response, json_data=None):
         self.response = response
         if json_data is not None:

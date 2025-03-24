@@ -1,5 +1,6 @@
 from pydantic import BaseModel, NameEmail, validator, Field, HttpUrl
 from typing import List, Optional
+from datetime import datetime
 
 class Get_List_Users_User(BaseModel):
     id: int = Field(ge=1)
@@ -23,3 +24,8 @@ class Get_List_Users(BaseModel):
     data: List[Get_List_Users_User] = Field(min_length=1)
     support: Get_List_Users_Support
 
+class Post_Create_User(BaseModel):
+    name: str
+    job: str
+    id: int
+    createdAt: datetime
