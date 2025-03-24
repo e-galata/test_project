@@ -5,6 +5,7 @@ from selenium.webdriver.chrome.service import Service  # Импорт Service
 from webdriver_manager.chrome import ChromeDriverManager
 
 #Пусть к вебдрайверу браузера прописан в PATH (Windows)
+#Для chrome браузера автоматически устанавливается вебдрайвер
 
 def pytest_addoption(parser):
     parser.addoption('--browser_name', action='store', default='chrome',
