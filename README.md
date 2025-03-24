@@ -52,7 +52,7 @@ Front-end Tests (Selenium)
 `You need installed chrome browser, webdriver will be installed automatically`  
 To run the Selenium front-end tests, execute the following command from the home directory of the project:
 ```bash
-pytest -v --tb=line --language=en
+pytest ./test*.py -v --tb=line --language=en
 ```
   * `-v`: verbose output.
   * `--tb=line`: short traceback format.
