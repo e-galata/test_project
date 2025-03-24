@@ -57,6 +57,7 @@ pytest ./test*.py -v --tb=line --language=en
   * `-v`: verbose output.
   * `--tb=line`: short traceback format.
   * `--language=en`: set the browser language to English.
+  * `--alluredir=allureres`: set the directory to allure reports (use "allureres" it's already added to .gitignore) 
 
 Backend API Tests  
 To run the API tests, execute the following command from the home directory of the project:
