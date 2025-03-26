@@ -21,7 +21,7 @@ This is the final course project updated in **2025** to work with **Python 3.13*
 
 ## 📦 Installation
 Docker:
-In home directory of the project execute the following commands. Tests will run automatically after run. Only the API and database tests are accessible via Docker.
+Execute the following commands. Tests will run automatically after docker run. Only the API and database tests are accessible via Docker.
    ```bash
    git clone https://github.com/e-galata/test_project.git
    cd test_project
