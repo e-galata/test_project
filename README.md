@@ -20,10 +20,19 @@ This is the final course project updated in **2025** to work with **Python 3.13*
 ---
 
 ## 📦 Installation
+Docker:
+In home directory of the project execute the following commands. Tests will run automatically after run. Only the API and database tests are accessible via Docker.
+   ```bash
+   git clone https://github.com/e-galata/test_project.git
+   cd test_project
+   docker build -t test_project .
+   docker run -it test_project
+   ```  
+OR install manually
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/yourusername/test_project.git
+   git clone https://github.com/e-galata/test_project.git
    cd test_project
    ```
 
@@ -65,6 +74,13 @@ To run the API tests, execute the following command from the home directory of t
 pytest -v api
 ```
 
+Database SQL tests  
+An SQLite in-memory database is used, with a test table users (columns: id, name, email) created for testing. After the session ends, the database resets to its initial state. No additional setup is required to run these tests—just this repository.
+To run the database tests, execute the following command from the home directory of the project:
+```bash
+pytest -s -v database/tests
+```
+
 🛠️ Tools and Technologies  
 * Python3.13: The tested version of Python with project.  
 * Selenium: For browser automation.  
@@ -76,7 +92,8 @@ pytest -v api
 ```
 test_project/
 ├── api/                  # Backend API tests
-├── frontend/             # Front-end tests using Selenium
+├── database/             # Database tests
+├── ./                    # Front-end tests using Selenium
 ├── pages/                # Page Object Model (POM) classes
 ├── requirements.txt      # Project dependencies
 ├── conftest.py           # Pytest configuration and fixtures
