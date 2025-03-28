@@ -38,7 +38,7 @@ OR install manually
 
 2. **Create a virtual environment**:
    ```bash
-   python -m venv venv
+   python3 -m venv venv
    ```
    Activate the virtual environment:
      On Windows:
